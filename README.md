@@ -1,3 +1,18 @@
+> **English:** Serious Sam 2 (Steam, patch 2.200+) ignores accepted Steam invites: clicking
+> "Accept" / "Join Game" does nothing. This mod is a tiny `steam_api.dll` proxy written in C
+> (built with Zig) that forwards every call to the original DLL and additionally handles
+> `GameLobbyJoinRequested_t`, `GameRichPresenceJoinRequested_t` and `+connect_lobby`, joins the
+> host's lobby and starts the game's own client connection. One-line install (both players,
+> game closed):
+>
+> ```powershell
+> irm https://raw.githubusercontent.com/duqisuki/ss2-steam-invite-fix/main/install.ps1 | iex
+> ```
+>
+> Tech: C · Win32 · Steamworks API · DLL proxying · Zig toolchain · PowerShell. License: [MIT](LICENSE).
+
+---
+
 # Serious Sam 2 — фикс приглашений Steam
 
 В Serious Sam 2 (Steam, патч 2.200+) сетевая игра идёт через Steam-лобби, но игра
