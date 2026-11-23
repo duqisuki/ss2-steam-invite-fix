@@ -1,0 +1,59 @@
+LIBRARY steam_api
+EXPORTS
+    GetHSteamPipe = steam_api_orig.GetHSteamPipe @1
+    GetHSteamUser = steam_api_orig.GetHSteamUser @2
+    SteamAPI_GetHSteamPipe = steam_api_orig.SteamAPI_GetHSteamPipe @3
+    SteamAPI_GetHSteamUser = steam_api_orig.SteamAPI_GetHSteamUser @4
+    SteamAPI_GetSteamInstallPath = steam_api_orig.SteamAPI_GetSteamInstallPath @5
+    SteamAPI_Init @6
+    SteamAPI_InitSafe @7
+    SteamAPI_IsSteamRunning = steam_api_orig.SteamAPI_IsSteamRunning @8
+    SteamAPI_RegisterCallResult = steam_api_orig.SteamAPI_RegisterCallResult @9
+    SteamAPI_RegisterCallback = steam_api_orig.SteamAPI_RegisterCallback @10
+    SteamAPI_RestartAppIfNecessary = steam_api_orig.SteamAPI_RestartAppIfNecessary @11
+    SteamAPI_RunCallbacks @12
+    SteamAPI_SetBreakpadAppID = steam_api_orig.SteamAPI_SetBreakpadAppID @13
+    SteamAPI_SetMiniDumpComment = steam_api_orig.SteamAPI_SetMiniDumpComment @14
+    SteamAPI_SetTryCatchCallbacks = steam_api_orig.SteamAPI_SetTryCatchCallbacks @15
+    SteamAPI_Shutdown @16
+    SteamAPI_UnregisterCallResult = steam_api_orig.SteamAPI_UnregisterCallResult @17
+    SteamAPI_UnregisterCallback = steam_api_orig.SteamAPI_UnregisterCallback @18
+    SteamAPI_UseBreakpadCrashHandler = steam_api_orig.SteamAPI_UseBreakpadCrashHandler @19
+    SteamAPI_WriteMiniDump = steam_api_orig.SteamAPI_WriteMiniDump @20
+    SteamApps = steam_api_orig.SteamApps @21
+    SteamClient = steam_api_orig.SteamClient @22
+    SteamContentServer = steam_api_orig.SteamContentServer @23
+    SteamContentServerUtils = steam_api_orig.SteamContentServerUtils @24
+    SteamContentServer_Init = steam_api_orig.SteamContentServer_Init @25
+    SteamContentServer_RunCallbacks = steam_api_orig.SteamContentServer_RunCallbacks @26
+    SteamContentServer_Shutdown = steam_api_orig.SteamContentServer_Shutdown @27
+    SteamFriends = steam_api_orig.SteamFriends @28
+    SteamGameServer = steam_api_orig.SteamGameServer @29
+    SteamGameServerApps = steam_api_orig.SteamGameServerApps @30
+    SteamGameServerHTTP = steam_api_orig.SteamGameServerHTTP @31
+    SteamGameServerNetworking = steam_api_orig.SteamGameServerNetworking @32
+    SteamGameServerStats = steam_api_orig.SteamGameServerStats @33
+    SteamGameServerUtils = steam_api_orig.SteamGameServerUtils @34
+    SteamGameServer_BSecure = steam_api_orig.SteamGameServer_BSecure @35
+    SteamGameServer_GetHSteamPipe = steam_api_orig.SteamGameServer_GetHSteamPipe @36
+    SteamGameServer_GetHSteamUser = steam_api_orig.SteamGameServer_GetHSteamUser @37
+    SteamGameServer_GetIPCCallCount = steam_api_orig.SteamGameServer_GetIPCCallCount @38
+    SteamGameServer_GetSteamID = steam_api_orig.SteamGameServer_GetSteamID @39
+    SteamGameServer_Init = steam_api_orig.SteamGameServer_Init @40
+    SteamGameServer_InitSafe = steam_api_orig.SteamGameServer_InitSafe @41
+    SteamGameServer_RunCallbacks = steam_api_orig.SteamGameServer_RunCallbacks @42
+    SteamGameServer_Shutdown = steam_api_orig.SteamGameServer_Shutdown @43
+    SteamHTTP = steam_api_orig.SteamHTTP @44
+    SteamMatchmaking = steam_api_orig.SteamMatchmaking @45
+    SteamMatchmakingServers = steam_api_orig.SteamMatchmakingServers @46
+    SteamNetworking = steam_api_orig.SteamNetworking @47
+    SteamRemoteStorage = steam_api_orig.SteamRemoteStorage @48
+    SteamScreenshots = steam_api_orig.SteamScreenshots @49
+    SteamUnifiedMessages = steam_api_orig.SteamUnifiedMessages @50
+    SteamUser = steam_api_orig.SteamUser @51
+    SteamUserStats = steam_api_orig.SteamUserStats @52
+    SteamUtils = steam_api_orig.SteamUtils @53
+    Steam_GetHSteamUserCurrent = steam_api_orig.Steam_GetHSteamUserCurrent @54
+    Steam_RegisterInterfaceFuncs = steam_api_orig.Steam_RegisterInterfaceFuncs @55
+    Steam_RunCallbacks = steam_api_orig.Steam_RunCallbacks @56
+    g_pSteamClientGameServer = steam_api_orig.g_pSteamClientGameServer @57 DATA
