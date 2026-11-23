@@ -161,12 +161,35 @@ static void register_callbacks(void)
 // ---- join ------------------------------------------------------------------
 // Step 2: we are a lobby member now, so GetLobbyOwner() works and the engine
 // can connect to the host. Same as the game's own server browser does.
+// Sam2Game.dll (2.224) function at RVA 0x19dc50 that closes every open menu screen.
+// The game's own invite handler (CMSOnlineAcceptGameInvite::ConnectingToHost_OnSuccess)
+// calls it right before starting the client; without it the joiner is stuck in a
+// loading/menu screen while already connected. Called only if its bytes match.
+static void close_menus(void)
+{
+    unsigned char *base = (unsigned char *)GetModuleHandleA("Sam2Game.dll");
+    if (!base) return;
+    unsigned char *fn = base + 0x19dc50;
+    unsigned listVa = (unsigned)(base + 0x40a270);             // menu stack global
+    static const unsigned char head[2] = { 0x8B, 0x0D };       // mov ecx, [list]
+    static const unsigned char tail[4] = { 0x85, 0xC9, 0x74, 0x15 }; // test ecx,ecx; je
+    if (IsBadReadPtr(fn, 32) || memcmp(fn, head, 2) || *(unsigned *)(fn + 2) != listVa || memcmp(fn + 6, tail, 4)) {
+        logf("close_menus: game version mismatch, skipped");
+        return;
+    }
+    ((void (__cdecl *)(void))fn)();
+    logf("menus closed");
+}
+
 static void start_client(u64 lobby)
 {
-    char cmd[160];
-    _snprintf(cmd, sizeof cmd, "sam_strServerName = \"%s\";", u64s(lobby));
+    char cmd[200];
+    _snprintf(cmd, sizeof cmd,
+              "sam_bJoinAsPrivate = 1; sam_bJoinAsObserver = 0; sam_strServerName = \"%s\";",
+              u64s(lobby));
     cmd[sizeof cmd - 1] = 0;
     int r1 = p_scrExecuteCommand(cmd, 1);
+    close_menus();
     int r2 = p_scrExecuteCommand("samStartClient();", 1);
     logf("samStartClient for lobby %s (set=%d start=%d)", u64s(lobby), r1, r2);
 }
